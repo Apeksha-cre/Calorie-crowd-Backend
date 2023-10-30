@@ -3,14 +3,16 @@ package com.calorieCrowd.caloriecrowdAPIs.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Entity
+@Table(name = "nutrition_facts")
 public class NutritionFact
 {
     @Id
     @Column
-    private long foodId;
+    private Long foodId;
 
     @Column
     private String foodName;
@@ -19,42 +21,42 @@ public class NutritionFact
     private String foodCategory;
 
     @Column
-    private long calorie;
+    private Integer calories;
 
     @Column
-    private double fat;
+    private Double fat;
 
     @Column
-    private double carbohydrate;
+    private Double carbohydrate;
 
     @Column
-    private double sugar;
+    private Double sugar;
 
     @Column
-    private double fiber;
+    private Double fiber;
 
     @Column
-    private double cholestrerolMg;
+    private Double cholesterolMg;
 
     @Column
-    private double saturatedFats;
+    private Double saturatedFats;
 
     @Column
-    private double calciumMg;
+    private Double calciumMg;
 
     @Column
-    private double ironFemg;
+    private Double ironFemg;
     @Column
-    private long protein;
+    private Integer protein;
 
     @Column
-    private long netCarb;
+    private Integer netCarbs;
 
-    public long getFoodId() {
+    public Long getFoodId() {
         return foodId;
     }
 
-    public void setFoodId(long foodId) {
+    public void setFoodId(Long foodId) {
         this.foodId = foodId;
     }
 
@@ -75,91 +77,91 @@ public class NutritionFact
     }
 
     public long getCalorie() {
-        return calorie;
+        return calories;
     }
 
-    public void setCalorie(long calorie) {
-        this.calorie = calorie;
+    public void setCalorie(Integer calorie) {
+        this.calories = calorie;
     }
 
-    public double getFat() {
+    public Double getFat() {
         return fat;
     }
 
-    public void setFat(double fat) {
+    public void setFat(Double fat) {
         this.fat = fat;
     }
 
-    public double getCarbohydrate() {
+    public Double getCarbohydrate() {
         return carbohydrate;
     }
 
-    public void setCarbohydrate(double carbohydrate) {
+    public void setCarbohydrate(Double carbohydrate) {
         this.carbohydrate = carbohydrate;
     }
 
-    public double getSugar() {
+    public Double getSugar() {
         return sugar;
     }
 
-    public void setSugar(double sugar) {
+    public void setSugar(Double sugar) {
         this.sugar = sugar;
     }
 
-    public double getFiber() {
+    public Double getFiber() {
         return fiber;
     }
 
-    public void setFiber(double fiber) {
+    public void setFiber(Double fiber) {
         this.fiber = fiber;
     }
 
-    public double getCholestrerolMg() {
-        return cholestrerolMg;
+    public Double getCholestrerolMg() {
+        return cholesterolMg;
     }
 
-    public void setCholestrerolMg(double cholestrerolMg) {
-        this.cholestrerolMg = cholestrerolMg;
+    public void setCholestrerolMg(Double cholestrerolMg) {
+        this.cholesterolMg = cholestrerolMg;
     }
 
-    public double getSaturatedFats() {
+    public Double getSaturatedFats() {
         return saturatedFats;
     }
 
-    public void setSaturatedFats(double saturatedFats) {
+    public void setSaturatedFats(Double saturatedFats) {
         this.saturatedFats = saturatedFats;
     }
 
-    public double getCalciumMg() {
+    public Double getCalciumMg() {
         return calciumMg;
     }
 
-    public void setCalciumMg(double calciumMg) {
+    public void setCalciumMg(Double calciumMg) {
         this.calciumMg = calciumMg;
     }
 
-    public double getIronFemg() {
+    public Double getIronFemg() {
         return ironFemg;
     }
 
-    public void setIronFemg(double ironFemg) {
+    public void setIronFemg(Double ironFemg) {
         this.ironFemg = ironFemg;
     }
 
-    public long getProtein() {
+    public Integer getProtein() {
         return protein;
     }
 
-    public void setProtein(long protein) {
+    public void setProtein(Integer protein) {
         this.protein = protein;
     }
 
-    public long getNetCarb() {
-        return netCarb;
+    public Integer getNetCarb() {
+        return netCarbs;
     }
 
-    public void setNetCarb(long netCarb) {
-        this.netCarb = netCarb;
+    public void setNetCarb(Integer netCarb) {
+        this.netCarbs = netCarb;
     }
 
 
