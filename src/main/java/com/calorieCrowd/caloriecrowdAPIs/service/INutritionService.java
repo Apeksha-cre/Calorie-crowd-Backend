@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface INutritionService {
     public List<NutritionDetails>  fetchNutritionDetails(String itemName);
+    public List<NutritionDetails>  fetchNutritionDetails(String itemName,String foodCategory);
     public List<NutritionDetails> mapNutritionFactToNutritionDetails(List<NutritionFact>nutritionFactsList);
 }

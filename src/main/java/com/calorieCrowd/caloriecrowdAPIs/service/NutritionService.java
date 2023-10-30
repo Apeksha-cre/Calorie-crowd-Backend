@@ -22,6 +22,12 @@ public class NutritionService implements INutritionService
 
         return nutritionDetailsList;
     }
+    public List<NutritionDetails> fetchNutritionDetails(String itemName, String foodCategory){
+        List<NutritionFact>nutritionFactsList =nutritionfactsRepository.fetchNutritionDetailsByNameAndCategory(itemName,foodCategory);
+        List<NutritionDetails>nutritionDetailsList=mapNutritionFactToNutritionDetails(nutritionFactsList);
+
+        return nutritionDetailsList;
+    }
 
     public List<NutritionDetails> mapNutritionFactToNutritionDetails(List<NutritionFact>nutritionFactsList)
     {

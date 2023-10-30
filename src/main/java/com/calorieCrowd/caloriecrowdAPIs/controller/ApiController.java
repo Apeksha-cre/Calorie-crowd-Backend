@@ -42,9 +42,13 @@ public class ApiController
     }
 
     @GetMapping(value = "/food")
-    public List<NutritionDetails> getNutritionDetails(@RequestParam("foodName") String itemName){
+    public List<NutritionDetails> getNutritionDetails(@RequestParam("foodName") String itemName,@RequestParam(name="foodCategory", required = false) String foodCategory){
      List<NutritionDetails>nutritionDetailsList;
-     nutritionDetailsList =nutritionService.fetchNutritionDetails(itemName);
+     if(foodCategory!= null)
+     {
+         nutritionDetailsList =nutritionService.fetchNutritionDetails(itemName,foodCategory);
+     }else{
+     nutritionDetailsList =nutritionService.fetchNutritionDetails(itemName);}
     return nutritionDetailsList;
 }
 

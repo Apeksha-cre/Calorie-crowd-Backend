@@ -11,4 +11,7 @@ public interface NutritionfactsRepository extends JpaRepository<NutritionFact,Lo
 @Query("SELECT nf FROM NutritionFact nf WHERE foodName LIKE %:itemName%")
 public List<NutritionFact> fetchNutritionDetailsByName(@Param("itemName") String itemName);
 
+
+@Query("SELECT nf FROM NutritionFact nf WHERE foodName LIKE %:itemName% AND foodCategory= :foodCategory")
+public List<NutritionFact> fetchNutritionDetailsByNameAndCategory(@Param("itemName") String itemName, @Param("foodCategory") String foodCategory);
 }
