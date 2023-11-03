@@ -1,13 +1,12 @@
 package com.calorieCrowd.caloriecrowdAPIs.controller;
 
 
-import com.calorieCrowd.caloriecrowdAPIs.model.ApiUser;
-import com.calorieCrowd.caloriecrowdAPIs.model.LoginResponse;
-import com.calorieCrowd.caloriecrowdAPIs.model.LoginUser;
-import com.calorieCrowd.caloriecrowdAPIs.model.NutritionDetails;
+import com.calorieCrowd.caloriecrowdAPIs.entity.SelectedItems;
+import com.calorieCrowd.caloriecrowdAPIs.model.*;
 import com.calorieCrowd.caloriecrowdAPIs.repo.UserRepository;
 import com.calorieCrowd.caloriecrowdAPIs.service.IUserService;
 import com.calorieCrowd.caloriecrowdAPIs.service.NutritionService;
+import com.calorieCrowd.caloriecrowdAPIs.service.SelectedItemServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +20,13 @@ public class ApiController
     private IUserService userService;
     @Autowired
     public UserRepository userRepository;
+   @Autowired
+   public NutritionService nutritionService;
+
     @Autowired
-    public NutritionService nutritionService;
+    public SelectedItemServices selectedItemServices;
+   // @Autowired
+   // public SelectedItems selectedItems;
 
     @GetMapping(value = "/")
     public String getStart(){
@@ -50,10 +54,14 @@ public class ApiController
      }else{
      nutritionDetailsList =nutritionService.fetchNutritionDetails(itemName);}
     return nutritionDetailsList;
-}
+    }
 
-
-
-
+    @PostMapping(value="/calorie/add")
+    public CalorieResponse addCalories(@RequestBody List<SelectedFoodItems> listOfSelectedFoodItems)
+    {
+        List<SelectedItems> listOfSelectedItems=selectedItemServices.mapSelectedFoodItemsToSelectedItems(listOfSelectedFoodItems);
+        CalorieResponse calorieResponse=selectedItemServices.addSelecteditems(listOfSelectedItems);
+        return calorieResponse;
+    }
 
 }

@@ -14,7 +14,7 @@ public class UserService implements IUserService{
     UserRepository userRepository;
     public ApiUser createUser(ApiUser user){
        User userEntity= mapnewUserToUser(user);
-       User createdUser= userRepository.save(userEntity);
+       User createdUser= userRepository.save(userEntity);//to create a new user or to add a new user in table
        ApiUser apiUser=mapUserToApiUser(createdUser);
         return apiUser;
     }
