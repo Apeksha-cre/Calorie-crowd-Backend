@@ -11,6 +11,11 @@ public class SelectedItems {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String enteryId;
 
+
+
+    @Column
+    private String userId;
+
     @Column
     private Long foodId;
 
@@ -83,5 +88,12 @@ public class SelectedItems {
 
     public void setTotalCalorie(Integer totalCalorie) {
         this.totalCalorie = totalCalorie;
+    }
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

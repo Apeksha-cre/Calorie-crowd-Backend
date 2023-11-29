@@ -9,6 +9,8 @@ import java.util.List;
 public interface ISelectedItemServices
 {
     public List<SelectedItems> mapSelectedFoodItemsToSelectedItems(List<SelectedFoodItems> listOfSelectedFoodItems);
-    public CalorieResponse addSelecteditems(List<SelectedItems>listOfSelectedItems);
+    public void addSelecteditems(List<SelectedItems>listOfSelectedItems);
+    public CalorieResponse currentCalorie(String userId);
+    public String getcurrentUserId();
 
 }

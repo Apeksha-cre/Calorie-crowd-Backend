@@ -10,6 +10,6 @@ import java.util.UUID;
 
 public interface SelectedItemRepository extends JpaRepository<SelectedItems, UUID> {
 
-    @Query("SELECT totalCalorie FROM SelectedItems s Where s.date=:date")
-    public List<Integer> fatchCalorieOnDate(@Param("date") String date);
+    @Query("SELECT totalCalorie FROM SelectedItems s Where s.date=:date AND s.userId=:userId")
+    public List<Integer> fatchCalorieOnDate(@Param("date") String date,@Param("userId") String userId);
 }

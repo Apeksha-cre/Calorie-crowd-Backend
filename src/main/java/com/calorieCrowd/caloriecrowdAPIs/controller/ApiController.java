@@ -33,7 +33,7 @@ public class ApiController
         return "welcome to the calorieCrowd Api";
     }
 
-    @PostMapping(value="/save")
+    @PostMapping(value="/signUp")
     public ApiUser addNewUser(@RequestBody ApiUser user){
         ApiUser createdUser=userService.createUser(user);
         return createdUser;
@@ -43,6 +43,13 @@ public class ApiController
     public LoginResponse authenticateUser(@RequestBody LoginUser loginuser){
         LoginResponse loginresponse=userService.logInUser(loginuser);
         return loginresponse;
+    }
+    @GetMapping(value="/calorie/{userId}")
+   public CalorieResponse userCalorie(@PathVariable("userId") String userId)
+    {
+        System.out.println(userId);
+        CalorieResponse calorieResponse=selectedItemServices.currentCalorie(userId);
+        return calorieResponse;
     }
 
     @GetMapping(value = "/food")
@@ -56,11 +63,14 @@ public class ApiController
     return nutritionDetailsList;
     }
 
+
     @PostMapping(value="/calorie/add")
     public CalorieResponse addCalories(@RequestBody List<SelectedFoodItems> listOfSelectedFoodItems)
     {
         List<SelectedItems> listOfSelectedItems=selectedItemServices.mapSelectedFoodItemsToSelectedItems(listOfSelectedFoodItems);
-        CalorieResponse calorieResponse=selectedItemServices.addSelecteditems(listOfSelectedItems);
+        selectedItemServices.addSelecteditems(listOfSelectedItems);
+        String userId=selectedItemServices.getcurrentUserId();
+        CalorieResponse calorieResponse=selectedItemServices.currentCalorie(userId);
         return calorieResponse;
     }
 

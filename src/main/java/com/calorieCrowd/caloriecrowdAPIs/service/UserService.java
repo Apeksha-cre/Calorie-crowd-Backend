@@ -44,11 +44,18 @@ public class UserService implements IUserService{
     public LoginResponse logInUser(LoginUser loginuser)
     {
         String userId=userRepository.findByEmail(loginuser.getEmail(), loginuser.getPassword());
-        User loggedUser=userRepository.findByUserId(userId);
-        String loginMessage="Logged in....";
-        LoginResponse loginresponse=new LoginResponse();
-        loginresponse.setLoginMessage(loginMessage);
-        loginresponse.setUser(loggedUser);
+        LoginResponse loginresponse = new LoginResponse();
+        if(userId== null)
+        {
+            String loginMessage="User not found...";
+            loginresponse.setLoginMessage(loginMessage);
+        }
+        else {
+            User loggedUser = userRepository.findByUserId(userId);
+            String loginMessage = "Logged in....";
+            loginresponse.setLoginMessage(loginMessage);
+            loginresponse.setUser(loggedUser);
+        }
         return loginresponse;
     }
 
