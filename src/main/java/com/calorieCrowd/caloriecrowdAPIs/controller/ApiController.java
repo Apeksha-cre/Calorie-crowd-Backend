@@ -5,6 +5,7 @@ import com.calorieCrowd.caloriecrowdAPIs.entity.SelectedItems;
 import com.calorieCrowd.caloriecrowdAPIs.model.*;
 import com.calorieCrowd.caloriecrowdAPIs.repo.UserRepository;
 import com.calorieCrowd.caloriecrowdAPIs.service.IUserService;
+import com.calorieCrowd.caloriecrowdAPIs.service.ImageAnalysisService;
 import com.calorieCrowd.caloriecrowdAPIs.service.NutritionService;
 import com.calorieCrowd.caloriecrowdAPIs.service.SelectedItemServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,8 @@ public class ApiController
     public SelectedItemServices selectedItemServices;
    // @Autowired
    // public SelectedItems selectedItems;
-
+@Autowired
+    public ImageAnalysisService imageAnalysisService;
     @GetMapping(value = "/")
     public String getStart(){
         return "welcome to the calorieCrowd Api";
@@ -73,5 +75,12 @@ public class ApiController
         CalorieResponse calorieResponse=selectedItemServices.currentCalorie(userId);
         return calorieResponse;
     }
+
+@PostMapping(value="/image")
+    public AnalysisResponse getImageAnalysis(@RequestBody String image)
+{
+    AnalysisResponse analysisResponse=imageAnalysisService.imageAnalysis(image);
+    return analysisResponse;
+}
 
 }
