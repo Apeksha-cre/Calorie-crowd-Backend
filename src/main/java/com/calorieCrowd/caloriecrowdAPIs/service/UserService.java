@@ -27,6 +27,7 @@ public class UserService implements IUserService{
         newUser.setName(user.getName());
         newUser.setPassword(user.getPassword());
         newUser.setMobileNumber(user.getMobileNumber());
+        newUser.setGoalCalorie(user.getGoalCalorie());
         return newUser;
     }
 

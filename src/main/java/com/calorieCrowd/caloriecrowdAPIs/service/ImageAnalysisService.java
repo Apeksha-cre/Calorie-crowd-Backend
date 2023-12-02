@@ -48,7 +48,7 @@ public class ImageAnalysisService implements IimageAnalysisService{
         response= webClient.post()
                 .uri(url)
                 .contentType(MediaType.MULTIPART_FORM_DATA)
-                .header("Authorization","Bearer 3c6ab6d44be89505943e1bfda67649a3218985c9")
+                .header("Authorization","Bearer db86797d2810e8b0640b2d63ee65b5c8f37b63eb")
                 .body(BodyInserters.fromMultipartData(builder.build()))
                 .retrieve()
 

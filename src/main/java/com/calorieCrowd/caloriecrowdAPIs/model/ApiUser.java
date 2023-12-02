@@ -11,6 +11,16 @@ public class ApiUser {
 
     private  String password;
 
+   private String goalCalorie;
+
+    public String getGoalCalorie() {
+        return goalCalorie;
+    }
+
+    public void setGoalCalorie(String goalCalorie) {
+        this.goalCalorie = goalCalorie;
+    }
+
     private  long mobileNumber;
 
     public String getUserId() {

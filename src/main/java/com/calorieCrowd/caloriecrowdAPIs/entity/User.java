@@ -21,6 +21,17 @@ public class User
     @Column
     private  String password;
 
+    public String getGoalCalorie() {
+        return goalCalorie;
+    }
+
+    public void setGoalCalorie(String goalCalorie) {
+        this.goalCalorie = goalCalorie;
+    }
+
+    @Column
+    private String goalCalorie;
+
     @Column
     private  long mobileNumber;
 
