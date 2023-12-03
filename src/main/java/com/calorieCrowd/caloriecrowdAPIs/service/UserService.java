@@ -28,6 +28,7 @@ public class UserService implements IUserService{
         newUser.setPassword(user.getPassword());
         newUser.setMobileNumber(user.getMobileNumber());
         newUser.setGoalCalorie(user.getGoalCalorie());
+        newUser.setWeight(user.getWeight());
         return newUser;
     }
 
@@ -39,6 +40,8 @@ public class UserService implements IUserService{
             apiUser.setMobileNumber(user.getMobileNumber());
             apiUser.setPassword(user.getPassword());
             apiUser.setName(user.getName());
+            apiUser.setGoalCalorie(user.getGoalCalorie());
+            apiUser.setWeight(user.getWeight());
             return apiUser;
 
     }

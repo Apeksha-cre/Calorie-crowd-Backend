@@ -13,6 +13,16 @@ public class ApiUser {
 
    private String goalCalorie;
 
+   private String weight;
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
     public String getGoalCalorie() {
         return goalCalorie;
     }

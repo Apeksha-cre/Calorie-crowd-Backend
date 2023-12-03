@@ -34,6 +34,49 @@ public class SelectedItems {
     @Column
     private String date;
 
+    @Column
+    private Integer protein;
+    @Column
+    private Integer carb;
+
+   @Column
+    private Integer totalProtein;
+
+   @Column
+   private Integer totalCarb;
+
+    public Integer getProtein() {
+        return protein;
+    }
+
+    public void setProtein(Integer protein) {
+        this.protein = protein;
+    }
+
+    public Integer getCarb() {
+        return carb;
+    }
+
+    public void setCarb(Integer carb) {
+        this.carb = carb;
+    }
+
+    public Integer getTotalProtein() {
+        return totalProtein;
+    }
+
+    public void setTotalProtein(Integer totalProtein) {
+        this.totalProtein = totalProtein;
+    }
+
+    public Integer getTotalCarb() {
+        return totalCarb;
+    }
+
+    public void setTotalCarb(Integer totalCarb) {
+        this.totalCarb = totalCarb;
+    }
+
     public String getDate() {
         return date;
     }

@@ -18,7 +18,42 @@ public class SelectedFoodItems
     private String foodQuantity;
     private Integer calories;
     private Integer totalCalorie;
+    private Integer protein;
+    private Integer carb;
+    private Integer totalCarb;
+    private  Integer totalProtein;
 
+    public Integer getProtein() {
+        return protein;
+    }
+
+    public void setProtein(Integer protein) {
+        this.protein = protein;
+    }
+
+    public Integer getCarb() {
+        return carb;
+    }
+
+    public void setCarb(Integer carb) {
+        this.carb = carb;
+    }
+
+    public Integer getTotalCarb() {
+        return totalCarb;
+    }
+
+    public void setTotalCarb(Integer totalCarb) {
+        this.totalCarb = totalCarb;
+    }
+
+    public Integer getTotalProtein() {
+        return totalProtein;
+    }
+
+    public void setTotalProtein(Integer totalProtein) {
+        this.totalProtein = totalProtein;
+    }
 //    public String getEnteryId() {
 //        return enteryId;
 //    }

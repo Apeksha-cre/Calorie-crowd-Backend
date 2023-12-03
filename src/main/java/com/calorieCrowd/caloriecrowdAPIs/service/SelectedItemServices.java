@@ -35,6 +35,10 @@ public class SelectedItemServices implements ISelectedItemServices {
             selectedItems.setCalories(selectedFoodItems.getCalories());
             selectedItems.setFoodName(selectedFoodItems.getFoodName());
             selectedItems.setTotalCalorie(selectedFoodItems.getTotalCalorie());
+            selectedItems.setProtein(selectedFoodItems.getProtein());
+            selectedItems.setTotalProtein(selectedFoodItems.getTotalProtein());
+            selectedItems.setCarb(selectedFoodItems.getCarb());
+            selectedItems.setTotalCarb(selectedFoodItems.getTotalCarb());
             selectedItems.setDate(date);
             listOfSelectedItems.add(selectedItems);
           currentUserId=selectedItems.getUserId();
@@ -72,17 +76,32 @@ public String getcurrentUserId()
     {
         String cUserId=userId;
         Integer totalCalorie=0;
+        Integer totalProtein=0;
+        Integer totalcarb=0;
         String date = LocalDate.now().toString();
         //String currentUserId=selectedItems.getUserId();
         List<Integer> calories=selectedItemRepository.fatchCalorieOnDate(date,cUserId);
+        List<Integer> protein=selectedItemRepository.fatchProteinOnDate(date,cUserId);
+        List<Integer> carb=selectedItemRepository.fatchCarbOnDate(date,cUserId);
+
 
         for(int i: calories)
         {
             totalCalorie+=i;
         }
+        for(int i: protein)
+        {
+            totalProtein+=i;
+        }
+        for(int i: carb)
+        {
+            totalcarb+=i;
+        }
 
         CalorieResponse calorieResponse=new CalorieResponse();
         calorieResponse.setTotalCalorie(totalCalorie);
+        calorieResponse.setTotalProtein(totalProtein);
+        calorieResponse.setTotalCarb(totalcarb);
         return calorieResponse;
     }
 

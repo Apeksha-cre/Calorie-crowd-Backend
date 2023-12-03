@@ -12,4 +12,11 @@ public interface SelectedItemRepository extends JpaRepository<SelectedItems, UUI
 
     @Query("SELECT totalCalorie FROM SelectedItems s Where s.date=:date AND s.userId=:userId")
     public List<Integer> fatchCalorieOnDate(@Param("date") String date,@Param("userId") String userId);
+
+    @Query("SELECT totalProtein FROM SelectedItems s Where s.date=:date AND s.userId=:userId")
+    public List<Integer> fatchProteinOnDate(@Param("date") String date,@Param("userId") String userId);
+
+    @Query("SELECT totalCarb FROM SelectedItems s Where s.date=:date AND s.userId=:userId")
+    public List<Integer> fatchCarbOnDate(@Param("date") String date,@Param("userId") String userId);
+
 }
