@@ -42,9 +42,16 @@ public class ApiController
     }
 
     @PostMapping(value="/login")
-    public AuthResponse authenticateUser(@RequestBody LoginUser loginuser){
+    public LoginResponse authenticateUser(@RequestBody LoginUser loginuser) {
+        var token = authenticationService.generateToken(loginuser.getEmail(), loginuser.getPassword());
+        var loginResponse = userService.logInUser(loginuser);
 
-      return authenticationService.generateToken(loginuser.getEmail(), loginuser.getPassword());
+        if (token.getBearerToken() != null){
+        loginResponse.setBearerToken(token.getBearerToken());
+            loginResponse.setTtl(token.getTtl());
+
+    }
+        return loginResponse;
     }
 
     @GetMapping(value="/calorie/{userId}")
