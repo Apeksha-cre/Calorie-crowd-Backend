@@ -3,6 +3,7 @@ package com.calorieCrowd.caloriecrowdAPIs.service;
 
 import com.calorieCrowd.caloriecrowdAPIs.model.AnalysisResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.MultipartBodyBuilder;
@@ -24,6 +25,9 @@ public class ImageAnalysisService implements IimageAnalysisService{
 
     private final String logmealApiUrl="https://api.logmeal.es/v2/image/segmentation/complete/v1.0";
     WebClient webClient = WebClient.create();
+
+    @Value("logmeal.api.token")
+    private String bearerToken;
     public AnalysisResponse imageAnalysis(String image)
     {
         Path tempFilePath = null;
@@ -48,7 +52,7 @@ public class ImageAnalysisService implements IimageAnalysisService{
         response= webClient.post()
                 .uri(url)
                 .contentType(MediaType.MULTIPART_FORM_DATA)
-                .header("Authorization","Bearer db86797d2810e8b0640b2d63ee65b5c8f37b63eb")
+                .header("Authorization","Bearer "+ bearerToken)
                 .body(BodyInserters.fromMultipartData(builder.build()))
                 .retrieve()
 
