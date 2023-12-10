@@ -4,10 +4,7 @@ package com.calorieCrowd.caloriecrowdAPIs.controller;
 import com.calorieCrowd.caloriecrowdAPIs.entity.SelectedItems;
 import com.calorieCrowd.caloriecrowdAPIs.model.*;
 import com.calorieCrowd.caloriecrowdAPIs.repo.UserRepository;
-import com.calorieCrowd.caloriecrowdAPIs.service.IUserService;
-import com.calorieCrowd.caloriecrowdAPIs.service.ImageAnalysisService;
-import com.calorieCrowd.caloriecrowdAPIs.service.NutritionService;
-import com.calorieCrowd.caloriecrowdAPIs.service.SelectedItemServices;
+import com.calorieCrowd.caloriecrowdAPIs.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +23,9 @@ public class ApiController
 
     @Autowired
     public SelectedItemServices selectedItemServices;
+
+    @Autowired
+    private AuthenticationService authenticationService;
    // @Autowired
    // public SelectedItems selectedItems;
 @Autowired
@@ -42,10 +42,18 @@ public class ApiController
     }
 
     @PostMapping(value="/login")
-    public LoginResponse authenticateUser(@RequestBody LoginUser loginuser){
-        LoginResponse loginresponse=userService.logInUser(loginuser);
-        return loginresponse;
+    public LoginResponse authenticateUser(@RequestBody LoginUser loginuser) {
+        var token = authenticationService.generateToken(loginuser.getEmail(), loginuser.getPassword());
+        var loginResponse = userService.logInUser(loginuser);
+
+        if (token.getBearerToken() != null){
+        loginResponse.setBearerToken(token.getBearerToken());
+            loginResponse.setTtl(token.getTtl());
+
     }
+        return loginResponse;
+    }
+
     @GetMapping(value="/calorie/{userId}")
    public CalorieResponse userCalorie(@PathVariable("userId") String userId)
     {

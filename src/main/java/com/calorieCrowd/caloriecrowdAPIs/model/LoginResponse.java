@@ -7,6 +7,9 @@ public class LoginResponse
     private User user;
     private String loginMessage;
 
+    private String bearerToken;
+
+    private long ttl;
     public User getUser() {
         return user;
     }
@@ -23,5 +26,21 @@ public class LoginResponse
         this.loginMessage = loginMessage;
     }
 
+
+    public String getBearerToken() {
+        return bearerToken;
+    }
+
+    public void setBearerToken(String bearerToken) {
+        this.bearerToken = bearerToken;
+    }
+
+    public long getTtl() {
+        return ttl;
+    }
+
+    public void setTtl(long ttl) {
+        this.ttl = ttl;
+    }
 
 }
