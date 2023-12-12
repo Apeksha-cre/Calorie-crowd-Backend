@@ -29,6 +29,7 @@ private JwtUtil jwtUtil;
     protected boolean shouldNotFilter(HttpServletRequest request)
             throws ServletException {
         String path = request.getRequestURI();
-        return path.contains("/login");
+        boolean shouldFilter =path.contains("/login") || path.contains("/signUp");
+        return shouldFilter;
     }
 }

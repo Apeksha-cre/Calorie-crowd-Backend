@@ -43,6 +43,7 @@ public class ApiController
 
     @PostMapping(value="/login")
     public LoginResponse authenticateUser(@RequestBody LoginUser loginuser) {
+
         var token = authenticationService.generateToken(loginuser.getEmail(), loginuser.getPassword());
         var loginResponse = userService.logInUser(loginuser);
 
@@ -87,19 +88,19 @@ public class ApiController
 @PostMapping(value="/image")
     public AnalysisResponse getImageAnalysis(@RequestBody String image)
 {
-//    AnalysisResponse analysisResponse=imageAnalysisService.imageAnalysis(image);
-//    return analysisResponse;
+    AnalysisResponse analysisResponse=imageAnalysisService.imageAnalysis(image);
+    return analysisResponse;
 
-    var response=new AnalysisResponse();
-    var segmentResult1= new SegmentationResult();
-    var recognisionResult1= new RecognizationResult();
-    recognisionResult1.setName("pie");
-    var recognisionResult2= new RecognizationResult();
-    recognisionResult2.setName("apple pie");
-    segmentResult1.setRecognition_results(List.of(recognisionResult1,recognisionResult2));
-
-    response.setSegmentation_results(List.of(segmentResult1));
-    return response;
+//    var response=new AnalysisResponse();
+//    var segmentResult1= new SegmentationResult();
+//    var recognisionResult1= new RecognizationResult();
+//    recognisionResult1.setName("pie");
+//    var recognisionResult2= new RecognizationResult();
+//    recognisionResult2.setName("apple pie");
+//    segmentResult1.setRecognition_results(List.of(recognisionResult1,recognisionResult2));
+//
+//    response.setSegmentation_results(List.of(segmentResult1));
+//    return response;
 }
 
 }

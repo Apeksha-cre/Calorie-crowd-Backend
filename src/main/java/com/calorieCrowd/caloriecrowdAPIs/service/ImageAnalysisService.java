@@ -26,7 +26,7 @@ public class ImageAnalysisService implements IimageAnalysisService{
     private final String logmealApiUrl="https://api.logmeal.es/v2/image/segmentation/complete/v1.0";
     WebClient webClient = WebClient.create();
 
-    @Value("logmeal.api.token")
+    @Value("${logmeal.api.token}")
     private String bearerToken;
     public AnalysisResponse imageAnalysis(String image)
     {
