@@ -19,7 +19,7 @@ public class SelectedItemServices implements ISelectedItemServices {
 
     @Autowired
     SelectedItemRepository selectedItemRepository;
-    String currentUserId = null;
+    //String currentUserId = null;
     public List<SelectedItems> mapSelectedFoodItemsToSelectedItems(List<SelectedFoodItems> listOfSelectedFoodItems) {
 
         List<SelectedItems> listOfSelectedItems = new ArrayList<>();
@@ -41,7 +41,7 @@ public class SelectedItemServices implements ISelectedItemServices {
             selectedItems.setTotalCarb(selectedFoodItems.getTotalCarb());
             selectedItems.setDate(date);
             listOfSelectedItems.add(selectedItems);
-          currentUserId=selectedItems.getUserId();
+
         }
 
 
@@ -66,11 +66,7 @@ public class SelectedItemServices implements ISelectedItemServices {
 //            calorieResponse.setTotalCalorie(totalCalorie);
 //        return calorieResponse;
     }
-public String getcurrentUserId()
-{
-    String userId=currentUserId;
-    return userId;
-}
+
 
     public CalorieResponse currentCalorie(String userId)
     {
