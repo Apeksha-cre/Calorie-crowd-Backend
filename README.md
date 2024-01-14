@@ -7,7 +7,7 @@ Dataset from Keggal : https://tools.myfooddata.com/nutrition-facts-database-spre
 # Intallation Guide
 
 1. On the the command prompt go to the directory you want to clone project.
-2. Use this command to clone: git clone https://github.com/Apeksha-cre/Caloriecrowd-Backend.git
+2. Use this command to clone: git clone <URL>
 3. Go to the external Api Logmeal: https://logmeal.es/api and create an account to get your API token.
 4. Open backend project into the INtellij
 5. Go to the Application.properties in Resource folder and make changes according to your database details such as username,password,url
