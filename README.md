@@ -12,7 +12,7 @@ Dataset from Keggal : https://tools.myfooddata.com/nutrition-facts-database-spre
 4. Open backend project into the INtellij
 5. Go to the Application.properties in Resource folder and make changes according to your database details such as username,password,url
 
-#Frontend code Repository 
+# Frontend code Repository 
 
 link: https://github.com/Apeksha-cre/Meal-Tracking-App-Caloricrowd-FrontEnd
 
